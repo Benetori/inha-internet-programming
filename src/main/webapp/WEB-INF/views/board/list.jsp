@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Simple Spring Boot Board</title>
+    <title>게시판</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
@@ -19,8 +19,7 @@
 <body>
 
 <div class="container">
-    <h2>Simple Spring Boot Board</h2>
-    <p>TEST Simple Board</p>
+    <h2>게시판</h2>
     <div>
         <a href="/board/create"><button type="button"
                                         class="btn btn-primary">Create</button></a>
@@ -28,17 +27,23 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Number</th>
-            <th>Title</th>
-            <th>Writer</th>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>조회수</th>
+            <th>추천수</th>
+            <th>날짜</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="board" items="${boardList }">
+        <c:forEach var="board" items="${boardList}">
             <tr>
                 <td>${board.b_id }</td>
                 <td><a href="/board/${board.b_id}">${board.b_title }</a></td>
                 <td>${board.b_writer }</td>
+                <td>${board.b_hits}</td>
+                <td>${board.b_recommend}</td>
+                <td>${board.b_created_date}</td>
             </tr>
         </c:forEach>
         </tbody>

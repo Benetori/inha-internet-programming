@@ -1,7 +1,9 @@
-package com.example.demo;
+package com.example.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -13,6 +15,7 @@ import java.time.LocalDateTime;
  * Created by NDS_047 on 2019-12-18.
  */
 @Entity
+@DynamicInsert
 @Table(name = "board")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Board {
@@ -24,8 +27,17 @@ public class Board {
     @Column(name = "b_writer", nullable = false, length = 100)
     private String b_writer;
 
-    @Column(name = "b_contents", nullable = false, length = 100)
+    @Column(name = "b_title", nullable = false, length = 100)
     private String b_title;
+
+    @Column(name = "b_contents", nullable = false, length = 100)
+    private String b_contents;
+
+    @Column(name = "b_hits")
+    private Integer b_hits;
+
+    @Column(name = "b_recommend")
+    private Integer b_recommend;
 
     @CreationTimestamp
     @Column(name = "b_created_date")
@@ -57,6 +69,30 @@ public class Board {
 
     public void setB_title(String b_title) {
         this.b_title = b_title;
+    }
+
+    public String getB_contents() {
+        return b_contents;
+    }
+
+    public void setB_contents(String b_contents) {
+        this.b_contents = b_contents;
+    }
+
+    public Integer getB_hits() {
+        return b_hits;
+    }
+
+    public void setB_hits(Integer b_hits) {
+        this.b_hits = b_hits;
+    }
+
+    public Integer getB_recommend() {
+        return b_recommend;
+    }
+
+    public void setB_recommend(Integer b_recommend) {
+        this.b_recommend = b_recommend;
     }
 
     public LocalDateTime getB_created_date() {
