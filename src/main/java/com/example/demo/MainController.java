@@ -6,12 +6,13 @@ package com.example.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class TestController {
+public class MainController {
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     private String jspIndex() {
         return "index"; // jsp확장자를 생략가능
     }
